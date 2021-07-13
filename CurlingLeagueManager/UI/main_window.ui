@@ -6,21 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>454</width>
-    <height>524</height>
+    <width>561</width>
+    <height>503</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Curing League Manager</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>10</y>
-      <width>287</width>
-      <height>421</height>
+      <y>40</y>
+      <width>404</width>
+      <height>371</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -52,6 +52,13 @@
        </item>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QPushButton" name="import_button">
+           <property name="text">
+            <string>Import League</string>
+           </property>
+          </widget>
+         </item>
          <item>
           <widget class="QPushButton" name="edit_button">
            <property name="text">
@@ -87,7 +94,20 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="add_line_edit"/>
+        <widget class="QLineEdit" name="add_line_edit">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <property name="placeholderText">
+          <string>Enter League Name</string>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -99,12 +119,61 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>454</width>
+     <width>561</width>
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionLoad_League"/>
+    <addaction name="separator"/>
+    <addaction name="action_Exit"/>
+   </widget>
+   <widget class="QMenu" name="menu_Edit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+    <addaction name="actionEdit_League"/>
+    <addaction name="actionAdd_League"/>
+   </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="action_About"/>
+   </widget>
+   <addaction name="menu_File"/>
+   <addaction name="menu_Edit"/>
+   <addaction name="menu_Help"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionLoad_League">
+   <property name="text">
+    <string>&amp;Load League</string>
+   </property>
+  </action>
+  <action name="action_Exit">
+   <property name="text">
+    <string>&amp;Exit</string>
+   </property>
+  </action>
+  <action name="actionEdit_League">
+   <property name="text">
+    <string>&amp;Edit League</string>
+   </property>
+  </action>
+  <action name="actionAdd_League">
+   <property name="text">
+    <string>&amp;Add League</string>
+   </property>
+  </action>
+  <action name="action_About">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
