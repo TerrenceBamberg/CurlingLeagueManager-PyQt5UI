@@ -1,8 +1,8 @@
-from identifiedObject import IdentifiedObject
-from emailer import Emailer
-from duplicate_oid import DuplicateOid
-from duplicate_email import DuplicateEmail
-from team_member import TeamMember
+from CurlingLeagueManager.identifiedObject import IdentifiedObject
+#from emailer import Emailer
+from CurlingLeagueManager.duplicate_oid import DuplicateOid
+from CurlingLeagueManager.duplicate_email import DuplicateEmail
+#from team_member import TeamMember
 
 
 class Team(IdentifiedObject):

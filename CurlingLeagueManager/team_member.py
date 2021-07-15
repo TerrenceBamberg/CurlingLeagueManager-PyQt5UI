@@ -1,5 +1,5 @@
-from identifiedObject import IdentifiedObject
-from emailer import Emailer
+from CurlingLeagueManager.identifiedObject import IdentifiedObject
+#from emailer import Emailer
 
 
 

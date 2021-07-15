@@ -1,7 +1,12 @@
 import sys
+import random
 
 from PyQt5 import uic, QtWidgets
-from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QMessageBox, QDialog
+
+from CurlingLeagueManager.UI.league_edit_dialog import EditDialog
+from CurlingLeagueManager.league import League
+
 
 QtBaseWindow, Ui_MainWindow = uic.loadUiType("main_window.ui")
 
@@ -21,9 +26,10 @@ class MainWindow(QtBaseWindow, Ui_MainWindow):
         if league_name == "":
             pass
         else:
-            self.league_list_widget.addItem(league_name)
-            self._leagues.append(league_name)
-            print("clicked")
+            n = random.randint(0, 22)
+            league = League(n, self.add_line_edit.text())
+            self._leagues.append(league)
+            self.update_ui()
 
     def update_ui(self):
         self.league_list_widget.clear()
@@ -32,8 +38,20 @@ class MainWindow(QtBaseWindow, Ui_MainWindow):
 
     def edit_button_clicked(self):
         row = self.league_list_widget.currentRow()
+        if row == -1:
+            return self.warn("Select League", "You must make a selection!")
         league = self._leagues[row]
-        #dialog = EditDialog(league)
+        dialog = EditDialog(league)
+        dialog.show()
+        dialog.add_team_button.clicked.connect(dialog.add_team_button_clicked)
+        #dialog.accepted.connect(edit_dialog_accepted)
+        if dialog.exec_() == QDialog.DialogCode.Accepted:
+            dialog.update_league(league)
+        self.update_ui()
+
+    def warn(self, message, title):
+        mb = QMessageBox(QMessageBox.Icon.NoIcon, title, message, QMessageBox.StandardButton.Ok)
+        return mb.exec()
 
     def delete_button_clicked(self):
         dialog = QMessageBox(self)
@@ -44,7 +62,6 @@ class MainWindow(QtBaseWindow, Ui_MainWindow):
         no = dialog.addButton("No", QMessageBox.ButtonRole.RejectRole)
 
         dialog.exec_()
-
         if dialog.clickedButton() == yes:
             try:
                 del self._leagues[self.league_list_widget.currentRow()]

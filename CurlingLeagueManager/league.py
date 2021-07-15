@@ -1,8 +1,8 @@
-from identifiedObject import IdentifiedObject
-from team import Team
-from competition import Competition
-from team_member import TeamMember
-from duplicate_oid import DuplicateOid
+from CurlingLeagueManager.identifiedObject import IdentifiedObject
+#from team import Team
+#from competition import Competition
+#from team_member import TeamMember
+from CurlingLeagueManager.duplicate_oid import DuplicateOid
 
 
 class League(IdentifiedObject):
@@ -26,6 +26,7 @@ class League(IdentifiedObject):
         if team in self._teams:
             raise DuplicateOid(team.oid)
         self._teams.append(team)
+
 
     def add_competition(self, competition):
         if competition in self._competitions:
@@ -59,4 +60,4 @@ class League(IdentifiedObject):
         return competitions_for_member
 
     def __str__(self):
-        return f"League {self.name}: {len(self._teams)} teams, {len(self._competitions)} competitions"
+        return f"League {self.name}: {len(self._teams)} teams,  {len(self._competitions)} competitions"
