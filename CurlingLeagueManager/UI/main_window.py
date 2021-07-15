@@ -4,13 +4,14 @@ import random
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMessageBox, QDialog
 
+from CurlingLeagueManager import league_database
 from CurlingLeagueManager.UI.league_edit_dialog import EditDialog
+from CurlingLeagueManager.UI.load_file import LoadFile
 from CurlingLeagueManager.league import League
 
 
 QtBaseWindow, Ui_MainWindow = uic.loadUiType("main_window.ui")
 
-#from league_database import LeagueDatabase
 
 class MainWindow(QtBaseWindow, Ui_MainWindow):
     def __init__(self, parent = None):
@@ -20,6 +21,11 @@ class MainWindow(QtBaseWindow, Ui_MainWindow):
         self.add_button.clicked.connect(self.add_button_clicked)
         self.edit_button.clicked.connect(self.edit_button_clicked)
         self.delete_button.clicked.connect(self.delete_button_clicked)
+        self.import_button.clicked.connect(self.import_button_clicked)
+
+    def import_button_clicked(self):
+        dialog = LoadFile()
+        dialog.show()
 
     def add_button_clicked(self):
         league_name = self.add_line_edit.text().strip()

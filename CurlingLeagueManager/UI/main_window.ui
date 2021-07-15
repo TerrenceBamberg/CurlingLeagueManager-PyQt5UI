@@ -76,13 +76,6 @@
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QPushButton" name="load_button">
-           <property name="text">
-            <string>Load League</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </item>
       </layout>
@@ -116,40 +109,6 @@
      </item>
     </layout>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>467</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menu_File">
-    <property name="title">
-     <string>&amp;File</string>
-    </property>
-    <addaction name="actionLoad_League"/>
-    <addaction name="separator"/>
-    <addaction name="action_Exit"/>
-   </widget>
-   <widget class="QMenu" name="menu_Edit">
-    <property name="title">
-     <string>&amp;Edit</string>
-    </property>
-    <addaction name="actionEdit_League"/>
-    <addaction name="actionAdd_League"/>
-   </widget>
-   <widget class="QMenu" name="menu_Help">
-    <property name="title">
-     <string>&amp;Help</string>
-    </property>
-    <addaction name="action_About"/>
-   </widget>
-   <addaction name="menu_File"/>
-   <addaction name="menu_Edit"/>
-   <addaction name="menu_Help"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionLoad_League">
